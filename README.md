@@ -10,9 +10,9 @@ A class to streamline the process of using JNI functions on Android.
 
 **Required libraries:**
 
-openfl
-openfl-native
-tink_macro
+- openfl
+- openfl-native
+- tink_macro
 
 **The problem:**
 
@@ -66,9 +66,8 @@ Only static functions are supported. Functions may be private or public, but the
 Java version must be public either way. Make sure the function name and signature
 matches that of the Java version.
 
-The supported types are Bool, Int, Float, String, and Void. Bool maps to boolean,
-Int maps to int, Float maps to float (not double, sorry), String maps to String
-(OpenFL handles the conversion, so don't worry about Java strings being different
-from C strings), and Void maps to TAKE A WILD GUESS.
+Bool maps to boolean, Int maps to int, Float maps to float (not double, sorry),
+String maps to String (OpenFL handles the conversion, so don't worry about Java
+strings being different from C strings), and Void maps to TAKE A WILD GUESS.
 
 iOS version coming eventually???
