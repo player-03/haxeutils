@@ -8,35 +8,41 @@ JNIClassBuilder.hx
 
 A class to streamline the process of using JNI functions on Android.
 
-**Required libraries:** openfl, openfl-native, tink_macro
+**Required libraries:**
 
-**The problem:** JNI functions are a hassle.
+openfl
+openfl-native
+tink_macro
 
-    class JNIFunctions {
-		private static var jniSampleFunction1:Int -> String -> Bool;
-		public static function sampleFunction1(var1:Int, var2:String):Bool {
-			if(jniSampleFunction1 == null) {
-				jniSampleFunction1 = openfl.utils.JNI.createStaticMethod(
-							"com/example/package/name/SampleClassName",
-							"sampleFunction1",
-							"(ILjava/lang/String;)Z");
-			}
-			
-			return jniSampleFunction1(size, mode);
-		}
-		
-		private static var jniSampleFunction2:Void -> Float;
-		public static function sampleFunction2():Float {
-			if(jniSampleFunction2 == null) {
-				jniSampleFunction2 = openfl.utils.JNI.createStaticMethod(
-							"com/example/package/name/SampleClassName",
-							"sampleFunction2",
-							"()F");
-			}
-			
-			return jniSampleFunction2();
-		}
-	}
+**The problem:**
+
+JNI functions are a hassle.
+
+    class SampleClassName {
+        private static var jniSampleFunction1:Int -> String -> Bool;
+        public static function sampleFunction1(var1:Int, var2:String):Bool {
+            if(jniSampleFunction1 == null) {
+                jniSampleFunction1 = openfl.utils.JNI.createStaticMethod(
+                            "com/example/package/name/SampleClassName",
+                            "sampleFunction1",
+                            "(ILjava/lang/String;)Z");
+            }
+            
+            return jniSampleFunction1(size, mode);
+        }
+        
+        private static var jniSampleFunction2:Void -> Float;
+        public static function sampleFunction2():Float {
+            if(jniSampleFunction2 == null) {
+                jniSampleFunction2 = openfl.utils.JNI.createStaticMethod(
+                            "com/example/package/name/SampleClassName",
+                            "sampleFunction2",
+                            "()F");
+            }
+            
+            return jniSampleFunction2();
+        }
+    }
 
 Now imagine changing the return type on one of those functions. In addition to
 changing the Java code, you'll have to replicate the change in three different
