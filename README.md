@@ -28,7 +28,7 @@ JNI functions are a hassle.
                             "(ILjava/lang/String;)Z");
             }
             
-            return jniSampleFunction1(size, mode);
+            return jniSampleFunction1(var1, var2);
         }
         
         private static var jniSampleFunction2:Void -> Float;
