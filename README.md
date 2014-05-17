@@ -3,7 +3,7 @@ haxeutils
 
 A set of utility classes that don't really fit anywhere else.
 
-JNIClassBuilder.hx
+[JNIClassBuilder.hx](https://github.com/player-03/haxeutils/blob/master/com/player03/haxeutils/JNIClassBuilder.hx)
 ==================
 
 A class to streamline the process of using JNI functions on Android.
