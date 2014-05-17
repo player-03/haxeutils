@@ -1,3 +1,27 @@
+/*
+ * The MIT License (MIT)
+ * 
+ * Copyright (c) 2014 Joseph Cloutier
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.player03.haxeutils;
 
 import haxe.macro.Context;
@@ -10,11 +34,6 @@ import tink.macro.Functions;
 import tink.macro.Member;
 import tink.macro.Types;
 
-/**
- * To enable, add the following before the class definition:
- * #if (android && !macro) @:build(com.player03.haxeutils.JNIClassBuilder.build()) #end
- * @author Joseph Cloutier
- */
 class JNIClassBuilder {
 	public static macro function build():Array<Field> {
 		var classPath:String = Context.getLocalClass().toString().split(".").join("/");
