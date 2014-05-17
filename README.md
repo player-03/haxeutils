@@ -70,4 +70,8 @@ Bool maps to boolean, Int maps to int, Float maps to float (not double, sorry),
 String maps to String (OpenFL handles the conversion, so don't worry about Java
 strings being different from C strings), and Void maps to TAKE A WILD GUESS.
 
+Compile with -DjniClassBuilderDebugJNI (or <haxedef name="jniClassBuilderDebugJNI")
+to print a message just before creating each function. This will let you know
+which funcctions aren't working, even if CheckJNI doesn't.
+
 iOS version coming eventually???
