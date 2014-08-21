@@ -49,13 +49,6 @@ class JNIClassBuilder {
 					&& OutcomeTools.isSuccess(member.extractMeta("jni"));
 			}));
 		
-		var newMember:Member = Member.prop("inited",
-				Types.toComplex(Context.getType("Bool")),
-				Context.currentPos(), true, true);
-		newMember.isPublic = false;
-		newMember.isStatic = true;
-		builder.addMember(newMember);
-		
 		var convertToJNIType:Null<ComplexType> -> String
 			= function(type:Null<ComplexType>):String {
 			if(type == null) {
@@ -138,7 +131,7 @@ class JNIClassBuilder {
 				memberBodyArray.push(Exprs.at(EReturn(jniCall)));
 			}
 			
-			newMember = Member.method(member.name,
+			var newMember:Member = Member.method(member.name,
 				Functions.func(memberBody, asFunction.args, asFunction.ret, asFunction.params, false));
 			newMember.isStatic = member.isStatic;
 			newMember.isPublic = member.isPublic;
