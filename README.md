@@ -3,16 +3,16 @@ haxeutils
 
 A set of utility classes that don't really fit anywhere else.
 
-JNIClassBuilder.hx
+[JNIClassBuilder.hx](https://github.com/player-03/haxeutils/blob/master/com/player03/haxeutils/JNIClassBuilder.hx)
 ==================
 
 A class to streamline the process of using JNI functions on Android.
 
 **Required libraries:**
 
-openfl
-openfl-native
-tink_macro
+- openfl
+- openfl-native
+- tink_macro
 
 **The problem:**
 
@@ -28,7 +28,7 @@ JNI functions are a hassle.
                             "(ILjava/lang/String;)Z");
             }
             
-            return jniSampleFunction1(size, mode);
+            return jniSampleFunction1(var1, var2);
         }
         
         private static var jniSampleFunction2:Void -> Float;
@@ -66,9 +66,12 @@ Only static functions are supported. Functions may be private or public, but the
 Java version must be public either way. Make sure the function name and signature
 matches that of the Java version.
 
-The supported types are Bool, Int, Float, String, and Void. Bool maps to boolean,
-Int maps to int, Float maps to float (not double, sorry), String maps to String
-(OpenFL handles the conversion, so don't worry about Java strings being different
-from C strings), and Void maps to TAKE A WILD GUESS.
+Bool maps to boolean, Int maps to int, Float maps to float (not double, sorry),
+String maps to String (OpenFL handles the conversion, so don't worry about Java
+strings being different from C strings), and Void maps to TAKE A WILD GUESS.
+
+Compile with `-DjniClassBuilderDebugJNI` (or `<haxedef name="jniClassBuilderDebugJNI">`)
+to print a message just before creating each function. This will let you know
+which funcctions aren't working, even if CheckJNI doesn't.
 
 iOS version coming eventually???
