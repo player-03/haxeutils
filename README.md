@@ -74,4 +74,25 @@ Compile with `-DjniClassBuilderDebugJNI` (or `<haxedef name="jniClassBuilderDebu
 to print a message just before creating each function. This will let you know
 which funcctions aren't working, even if CheckJNI doesn't.
 
-iOS version coming eventually???
+[NDLLClassBuilder.hx](https://github.com/player-03/haxeutils/blob/master/com/player03/haxeutils/NDLLClassBuilder.hx)
+===================
+
+Like JNIClassBuilder, except it generates the code necessary to call C++ functions that have been compiled into an NDLL.
+
+Let's say you compile the [sample extension](https://github.com/openfl/lime/tree/master/templates/extension) into `testext.ndll` and add it to your project. This static function would allow you to call SampleMethod():
+
+    #if !macro @:build(com.player03.haxeutils.NDLLClassBuilder.build()) #end
+    class TestExt {
+        @ndll("testext", "testext") public static function SampleMethod(inputValue:Int):Int;
+    }
+
+The two arguments passed to the `@ndll` metadata tell the class builder which NDLL to look in, and which namespace the function is found in. The two are often the same, but advanced users may want to use multiple different namespaces.
+
+If you don't want to type them for every single function, you can also specify defaults:
+
+    #if !macro @:build(com.player03.haxeutils.NDLLClassBuilder.build("testext", "testext")) #end
+    class TestExt {
+        @ndll public static function SampleMethod(inputValue:Int):Int;
+    }
+
+If you're responsible for building the NDLL, you may want to use [ExtensionBoilerplate](https://github.com/player-03/ExtensionBoilerplate) as well.
