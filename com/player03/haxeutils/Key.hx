@@ -92,8 +92,8 @@ class Key {
 	 * Clears the given key, whether or not it was released. If the key
 	 * was the most recently pressed, it may be recorded again.
 	 */
-	public static function clearKey(keyCode:Int):Void {
-		if(keyCode >= ARRAY_LENGTH) {
+	public static inline function clearKey(keyCode:Int):Void {
+		if(keyCode >= ARRAY_LENGTH || keyCode < 0) {
 			return;
 		}
 		
@@ -108,7 +108,7 @@ class Key {
 		mostRecentKey = 0;
 	}
 	
-	public static function isDown(keyCode:Int):Bool {
+	public static inline function isDown(keyCode:Int):Bool {
 		if(keyCode >= ARRAY_LENGTH || keyCode < 0) {
 			return false;
 		}
